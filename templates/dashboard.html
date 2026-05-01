@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background:#121212;
+    color:white;
+    text-align:center;
+}
+.task {
+    background:#1e1e1e;
+    margin:10px;
+    padding:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>To-Do Dashboard</h2>
+
+<form method="POST" action="/add">
+    <input name="task" placeholder="New task">
+    <button>Add</button>
+</form>
+
+{% for id, task in tasks %}
+<div class="task">
+    {{ task }}
+    <a href="/delete/{{ id }}">❌</a>
+</div>
+{% endfor %}
+
+<br>
+<a href="/logout"><button>Logout</button></a>
+
+</body>
+</html>
